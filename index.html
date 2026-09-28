@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Solar Energy Solutions - PM Surya Ghar</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #0066cc;
+      --primary-dark: #0052a3;
+      --primary-light: #e6f0ff;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --error: #ef4444;
+      --text-dark: #1f2937;
+      --text-gray: #6b7280;
+      --border-light: #e5e7eb;
+      --bg-light: #f9fafb;
+      --bg-white: #ffffff;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --gradient-solar: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      --gradient-primary: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text-dark: #f3f4f6;
+        --text-gray: #d1d5db;
+        --bg-light: #1f2937;
+        --bg-white: #111827;
+        --border-light: #374151;
+      }
+    }
+
+    html, body {
+      height: 100%;
+      scroll-padding-top: env(safe-area-inset-top, 0px);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background: var(--bg-white);
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    /* Header */
+    header {
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border-light);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    nav {
+      display: none;
+      gap: 2rem;
+      flex: 1;
+    }
+
+    nav a {
+      color: var(--text-gray);
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    @media (min-width: 768px) {
+      nav {
+        display: flex;
+      }
+    }
+
+    .nav-toggle {
+      display: block;
+      background: none;
+      font-size: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .nav-toggle {
+        display: none;
+      }
+    }
+
+    /* Trust Bar */
+    .trust-bar {
+      background: var(--bg-light);
+      padding: 3rem 1.5rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .trust-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .trust-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+
+    .trust-text h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .trust-text p {
+      font-size: 0.875rem;
+      color: var(--text-gray);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 1280px;
+      margin: 0 auto;
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .hero-content {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .hero-left {
+      order: 2;
+    }
+
+    @media (min-width: 768px) {
+      .hero-left {
+        order: 1;
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--success);
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+
+    .highlight {
+      background: var(--gradient-solar);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    h2 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      color: var(--text-dark);
+    }
+
+    .hero-description {
+      font-size: 1.125rem;
+      color: var(--text-gray);
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .subsidy-callout {
+      background: var(--primary-light);
+      border-left: 4px solid var(--primary);
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .subsidy-callout h3 {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+    }
+
+    .subsidy-callout p {
+      color: var(--text-gray);
+      font-size: 0.95rem;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: var(--gradient-primary);
+      color: white;
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary-light);
+    }
+
+    .trust-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      font-size: 0.875rem;
+      color: var(--text-gray);
+    }
+
+    .trust-badges-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-right {
+      order: 1;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .hero-right {
+        order: 2;
+      }
+    }
+
+    .hero-image {
+      background: var(--gradient-solar);
+      border-radius: 1rem;
+      aspect-ratio: 1;
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-badge-floating {
+      position: absolute;
+      background: white;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      box-shadow: var(--shadow-lg);
+      font-size: 0.875rem;
+      z-index: 10;
+    }
+
+    .hero-badge-floating strong {
+      display: block;
+      font-size: 1.25rem;
+      color: var(--text-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-badge-floating p {
+      color: var(--text-gray);
+      font-size: 0.75rem;
+    }
+
+    /* Section Container */
+    section {
+      padding: 4rem 1.5rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    section > .container {
+      max-width: 1280px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-label {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    /* Benefits Section */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .benefit-card {
+      background: var(--bg-light);
+      padding: 2rem;
+      border-radius: 1rem;
+      transition: all 0.3s;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .benefit-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .benefit-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+
+    .benefit-card p {
+      color: var(--text-gray);
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    /* Subsidy Section */
+    .subsidy-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    @media (min-width: 768px) {
+      .subsidy-content {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .subsidy-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+
+    .subsidy-table th,
+    .subsidy-table td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .subsidy-table th {
+      background: var(--bg-light);
+      font-weight: 600;
+    }
+
+    .subsidy-table tr:hover {
+      background: var(--primary-light);
+    }
+
+    .subsidy-gauge {
+      background: var(--bg-light);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .gauge-bar {
+      width: 100%;
+      height: 12px;
+      background: var(--border-light);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .gauge-fill {
+      height: 100%;
+      background: var(--gradient-solar);
+      width: 45%;
+    }
+
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .roadmap-step {
+      background: var(--bg-light);
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+    }
+
+    .roadmap-step strong {
+      display: block;
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .roadmap-step p {
+      color: var(--text-gray);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* Form Section */
+    .calculator-section {
+      background: var(--bg-light);
+    }
+
+    .form-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .form-container {
+        grid-template-columns: 1.2fr 1fr;
+      }
+    }
+
+    .form-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+      font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border-light);
+      border-radius: 0.5rem;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .form-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .capacity-pills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .capacity-btn {
+      padding: 0.75rem;
+      background: var(--bg-light);
+      border: 2px solid var(--border-light);
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+
+    .capacity-btn:hover,
+    .capacity-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .form-submit {
+      background: var(--gradient-primary);
+      color: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      width: 100%;
+      margin-top: 1.5rem;
+      transition: all 0.3s;
+    }
+
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .form-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .form-message {
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      display: none;
+    }
+
+    .form-message.success {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--success);
+      display: block;
+    }
+
+    .form-message.error {
+      background: rgba(239, 68, 68, 0.1);
+      color: var(--error);
+      display: block;
+    }
+
+    .estimate-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .estimate-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .estimate-item:last-child {
+      border-bottom: none;
+    }
+
+    .estimate-label {
+      color: var(--text-gray);
+      font-size: 0.95rem;
+    }
+
+    .estimate-value {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+
+    .journey-steps {
+      margin-top: 2rem;
+    }
+
+    .journey-step {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .journey-number {
+      background: var(--primary);
+      color: white;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .journey-content h4 {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: var(--text-dark);
+    }
+
+    .journey-content p {
+      color: var(--text-gray);
+      font-size: 0.9rem;
+    }
+
+    /* Steps Section */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .step-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s;
+    }
+
+    .step-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .step-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .step-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .step-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+
+    .step-card p {
+      font-size: 0.9rem;
+      color: var(--text-gray);
+      line-height: 1.6;
+    }
+
+    /* Reviews Section */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .review-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 0.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .star {
+      color: #fbbf24;
+      font-size: 1rem;
+    }
+
+    .review-text {
+      color: var(--text-gray);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    .reviewer {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .reviewer-avatar {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+
+    .reviewer-name {
+      font-weight: 600;
+      color: var(--text-dark);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .reviewer-title {
+      font-size: 0.8rem;
+      color: var(--text-gray);
+    }
+
+    /* FAQ Section */
+    .accordion {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .accordion-item {
+      border: 1px solid var(--border-light);
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      background: white;
+      padding: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .accordion-header:hover {
+      background: var(--bg-light);
+    }
+
+    .accordion-icon {
+      transition: transform 0.3s;
+    }
+
+    .accordion-item.active .accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: var(--bg-light);
+    }
+
+    .accordion-item.active .accordion-content {
+      max-height: 500px;
+      padding: 1.5rem;
+    }
+
+    .accordion-text {
+      color: var(--text-gray);
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--text-dark);
+      color: white;
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .footer-cta {
+      background: var(--gradient-primary);
+      padding: 2rem;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-cta h2 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .footer-cta p {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      section {
+        padding: 2rem 1rem;
+      }
+
+      h1 {
+        font-size: 1.75rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .benefits-grid,
+      .reviews-grid,
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="header-content container">
+    <div class="logo">☀️ Share-Win Solar</div>
+    <nav>
+      <a href="#benefits">Benefits</a>
+      <a href="#subsidy">Subsidy</a>
+      <a href="#calculator">Calculator</a>
+      <a href="#howitworks">How It Works</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <button class="nav-toggle">☰</button>
+  </div>
+</header>
+
+<!-- Trust Bar -->
+<div class="trust-bar">
+  <div class="trust-grid container">
+    <div class="trust-item">
+      <div class="trust-icon">✅</div>
+      <div class="trust-text">
+        <h3>MNRE Approved</h3>
+        <p>Ministry Recognized Installer</p>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">⚡</div>
+      <div class="trust-text">
+        <h3>25+ Year Warranty</h3>
+        <p>Panel & Inverter Protection</p>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🏠</div>
+      <div class="trust-text">
+        <h3>2,000+ Homes</h3>
+        <p>Trusted by Tamil Nadu</p>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">💰</div>
+      <div class="trust-text">
+        <h3>PM Subsidy Partner</h3>
+        <p>Direct Government Support</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content container">
+    <div class="hero-left">
+      <div class="hero-badge">✨ Eligible for Government Subsidy</div>
+      <h1>Turn Sunlight Into <span class="highlight">Free Electricity</span></h1>
+      <p class="hero-description">Install a rooftop solar system with PM Surya Ghar: Muft Bijli Yojana subsidy. Cut your electricity bills by 90% and earn government assistance.</p>
+      
+      <div class="subsidy-callout">
+        <h3>💡 Know Your Subsidy Amount</h3>
+        <p><strong>₹30,000</strong> for 1 kW | <strong>₹60,000</strong> for 2 kW | <strong>₹78,000+</strong> for 3 kW systems</p>
+      </div>
+
+      <div class="button-group">
+        <a href="#calculator" class="btn btn-primary">Get Your Free Estimate →</a>
+        <a href="#calculator" class="btn btn-secondary">Learn More</a>
+      </div>
+
+      <div class="trust-badges">
+        <div class="trust-badges-item">✓ Zero Installation Cost</div>
+        <div class="trust-badges-item">✓ DISCOM Approved</div>
+        <div class="trust-badges-item">✓ 25 Year Warranty</div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-image">
+        <div style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 4rem;">☀️</div>
+      </div>
+      <div class="hero-badge-floating" style="top: 1rem; right: 1rem;">
+        <strong>3 kW System</strong>
+        <p>Avg. 120+ units/month</p>
+      </div>
+      <div class="hero-badge-floating" style="bottom: 2rem; left: 1rem;">
+        <strong>₹500/month</strong>
+        <p>Average EB bill after solar</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Benefits Section -->
+<section id="benefits">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Why Choose Solar?</div>
+      <h2>Benefits That Pay for Themselves</h2>
+      <p style="color: var(--text-gray); margin-top: 1rem; font-size: 1.1rem;">Experience long-term energy independence and savings with certified installation.</p>
+    </div>
+
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">💰</div>
+        <h3>Government Subsidy Support</h3>
+        <p>Eligible residential consumers receive direct financial assistance under PM Surya Ghar credited to bank account.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">⚡</div>
+        <h3>Lower EB Bills</h3>
+        <p>Generate electricity from your rooftop, reduce grid tariff dependence, and cut bills by up to 90%.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🏠</div>
+        <h3>Designed for Your Home</h3>
+        <p>Engineered solar layout based on load, shade profile, and available rooftop or elevated area.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🔧</div>
+        <h3>Professional Installation</h3>
+        <p>High-grade aluminum structures, waterproof anchorings, and clean routing for coastal reliability.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📋</div>
+        <h3>Process Guidance</h3>
+        <p>End-to-end liaison: documentation, portal uploads, DISCOM inspections, and meter commissioning.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🌱</div>
+        <h3>Clean Energy</h3>
+        <p>Use Tamil Nadu sun for zero-emission power, offsetting tons of carbon over 25+ year lifespan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Subsidy Section -->
+<section id="subsidy">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Government Support</div>
+      <h2>Make Solar More Affordable With Government Assistance</h2>
+    </div>
+
+    <div class="subsidy-content">
+      <div>
+        <h3 style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;"><span>📊</span> Subsidy Tiers</h3>
+        
+        <table class="subsidy-table">
+          <thead>
+            <tr>
+              <th>System Capacity</th>
+              <th>Central Subsidy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1 kW</strong></td>
+              <td>₹30,000</td>
+            </tr>
+            <tr>
+              <td><strong>2 kW</strong></td>
+              <td>₹60,000</td>
+            </tr>
+            <tr style="border-left: 4px solid var(--primary);">
+              <td><strong>3 kW & Above</strong></td>
+              <td>₹78,000+</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="subsidy-gauge">
+          <div style="margin-bottom: 1rem;">
+            <strong>Subsidy Utilization</strong>
+            <span style="float: right; color: var(--primary);">45%</span>
+          </div>
+          <div class="gauge-bar">
+            <div class="gauge-fill"></div>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-gray);">
+            <span>0%</span>
+            <span>100%</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="margin-bottom: 1.5rem;">Your Solar Roadmap</h3>
+        
+        <div class="roadmap">
+          <div class="roadmap-step">
+            <strong>1️⃣ Apply</strong>
+            <p>Submit details: load, roof area, contact info</p>
+          </div>
+          <div class="roadmap-step">
+            <strong>2️⃣ Survey</strong>
+            <p>Site assessment & system design by engineers</p>
+          </div>
+          <div class="roadmap-step">
+            <strong>3️⃣ Install</strong>
+            <p>Swift installation + net meter setup</p>
+          </div>
+          <div class="roadmap-step">
+            <strong>4️⃣ Commission</strong>
+            <p>DISCOM inspection & approval</p>
+          </div>
+        </div>
+
+        <p style="margin-top: 2rem; font-size: 0.85rem; color: var(--text-gray); font-style: italic;">
+          *Subsidy amount and eligibility subject to Central and State DISCOM guidelines.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Calculator / Lead Capture Section -->
+<section id="calculator" class="calculator-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Instant Calculation</div>
+      <h2>See Your Savings in Real-Time</h2>
+      <p style="color: var(--text-gray); margin-top: 1rem; font-size: 1.1rem;">Enter your details for a personalized solar system estimate and subsidy amount.</p>
+    </div>
+
+    <div class="form-container">
+      <!-- Form Card -->
+      <div class="form-card">
+        <h3 style="margin-bottom: 1.5rem; color: var(--text-dark);">Your Details</h3>
+        
+        <div id="formMessage" class="form-message"></div>
+
+        <form id="solarForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Full Name</label>
+              <input type="text" id="name" name="name" placeholder="e.g. Senthil Kumar" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="e.g. senthil@example.com" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Mobile (WhatsApp Number)</label>
+            <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required>
+          </div>
+
+          <button type="submit" class="form-submit" id="submitBtn">Get Your Free Estimate</button>
+        </form>
+
+        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-light); font-size: 0.8rem; color: var(--text-gray);">
+          ✓ Your details are secure and will only be used for solar recommendations.
+        </div>
+      </div>
+
+      <!-- Estimate Card -->
+      <div class="estimate-card">
+        <h3 style="margin-bottom: 1.5rem; color: var(--text-dark);">Your Estimate</h3>
+
+        <div class="estimate-item">
+          <div class="estimate-label">Average Annual Savings</div>
+          <div class="estimate-value">₹24,000 – ₹36,000</div>
+        </div>
+
+        <div class="estimate-item">
+          <div class="estimate-label">Government Subsidy</div>
+          <div class="estimate-value">₹60,000</div>
+        </div>
+
+        <div class="estimate-item">
+          <div class="estimate-label">Your Investment</div>
+          <div class="estimate-value">₹1,20,000 – ₹1,80,000</div>
+        </div>
+
+        <div class="estimate-item" style="border-bottom: 2px solid var(--primary);">
+          <div class="estimate-label"><strong>ROI Period</strong></div>
+          <div class="estimate-value" style="color: var(--success); font-size: 1.3rem;"><strong>5–6 Years</strong></div>
+        </div>
+
+        <h4 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--text-dark);">Your Solar Journey</h4>
+        
+        <div class="journey-steps">
+          <div class="journey-step">
+            <div class="journey-number">1</div>
+            <div class="journey-content">
+              <h4>Free Site Assessment</h4>
+              <p>Engineers survey roof, calculate load, check shade patterns</p>
+            </div>
+          </div>
+          <div class="journey-step">
+            <div class="journey-number">2</div>
+            <div class="journey-content">
+              <h4>Custom System Design</h4>
+              <p>Optimal panel layout, inverter sizing, cost estimates</p>
+            </div>
+          </div>
+          <div class="journey-step">
+            <div class="journey-number">3</div>
+            <div class="journey-content">
+              <h4>Fast Installation</h4>
+              <p>Turnkey setup + net meter commissioning</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works Section -->
+<section id="howitworks">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Process</div>
+      <h2>5 Simple Steps to Your Solar System</h2>
+      <p style="color: var(--text-gray); margin-top: 1rem; font-size: 1.1rem;">From consultation to activation in under 60 days.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <div class="step-icon">📋</div>
+        <h3>Tell Us About Your Home</h3>
+        <p>Share average electricity bill, roof layout, and contact details.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <div class="step-icon">🔍</div>
+        <h3>Site Assessment</h3>
+        <p>Certified engineers inspect roof dimensions and shadow-free areas.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <div class="step-icon">📐</div>
+        <h3>System Design</h3>
+        <p>Custom engineering with optimal panel tilt and inverter sizing.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <div class="step-icon">⚙️</div>
+        <h3>Install & Net Meter</h3>
+        <p>Swift installation + turnkey DISCOM net-meter setup.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">5</div>
+        <div class="step-icon">💡</div>
+        <h3>Start Generating</h3>
+        <p>Switch on your breaker and watch your bi-monthly bill plunge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews Section -->
+<section id="reviews">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Success Stories</div>
+      <h2>Real Customers, Real Savings</h2>
+      <p style="color: var(--text-gray); margin-top: 1rem; font-size: 1.1rem;">Join 2,000+ Tamil Nadu homeowners saving thousands every year.</p>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+        </div>
+        <p class="review-text">"The entire process was much easier than expected. The team explained the system clearly and guided us through installation and documentation seamlessly."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">P</div>
+          <div>
+            <span class="reviewer-name">Priya Sharma</span>
+            <span class="reviewer-title">Chennai, 2 kW System</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+        </div>
+        <p class="review-text">"I had many questions about subsidy, maintenance, and net metering. The team explained everything clearly without any stress during the process."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">R</div>
+          <div>
+            <span class="reviewer-name">Ramesh Kumar</span>
+            <span class="reviewer-title">Bangalore, 3 kW System</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+        </div>
+        <p class="review-text">"I wanted to reduce summer AC expenses. My bi-monthly bill dropped from ₹6,800 to under ₹600. Extremely happy with the results!"</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">A</div>
+          <div>
+            <span class="reviewer-name">Arun Patel</span>
+            <span class="reviewer-title">Coimbatore, 3 kW System</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Questions?</div>
+      <h2>Frequently Asked Questions</h2>
+      <p style="color: var(--text-gray); margin-top: 1rem; font-size: 1.1rem;">Find answers to common questions about solar, subsidies, and installation.</p>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">
+          What is the PM Surya Ghar subsidy amount?
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <p class="accordion-text">Under PM Surya Ghar: Muft Bijli Yojana, eligible residential consumers receive ₹30,000 for 1 kW, ₹60,000 for 2 kW, and up to ₹78,000 for 3 kW+ systems. Subsidy is deposited via Direct Benefit Transfer after DISCOM commissioning.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          Am I eligible for the subsidy?
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <p class="accordion-text">Residential consumers with valid identity proof, address proof, electricity connection, and roof/terrace access are typically eligible. State-specific requirements may apply.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          How long does installation take?
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <p class="accordion-text">From application to DISCOM approval usually takes 30–60 days. Actual installation takes 3–5 days depending on system size.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          What if my roof has shade?
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <p class="accordion-text">Our engineers assess shade patterns and design layouts optimizing sun exposure. Shaded portions are avoided, and microinverters can mitigate partial shading.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          How much can I save annually?
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <p class="accordion-text">Savings depend on current EB bill, system size, and location. A typical 2 kW system saves ₹24,000–₹36,000 annually in Tamil Nadu.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          Is maintenance required?
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <p class="accordion-text">Solar panels require minimal maintenance—occasional cleaning and annual DISCOM inspections. Inverters may need servicing after 5–10 years.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          What warranty do you offer?
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <p class="accordion-text">We provide 25-year panel warranty, 10-year inverter warranty, and 5-year installation warranty covering workmanship and materials.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          Can I sell excess power?
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <p class="accordion-text">With a net meter, excess power is fed to the grid and credited on your bill. You don't earn cash but get reduced electricity costs.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          What happens during power cuts?
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <p class="accordion-text">Standard grid-tied systems work when the grid is active. Optional battery storage systems can provide backup during outages.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          How is the system interconnected to the grid?
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <p class="accordion-text">Your solar system connects to a bidirectional net meter which measures power both to and from the grid, offsetting your consumption.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          What happens after DISCOM approval?
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <p class="accordion-text">After approval and net meter commissioning, your system is live. Subsidy processing typically takes 2–4 weeks via DBT to your bank account.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          Can I increase my system size later?
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <p class="accordion-text">Yes. Many customers expand systems 3–5 years later. We handle all documentation and DISCOM updates for seamless upgrades.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA Section -->
+<section style="background: var(--bg-light);">
+  <div class="container">
+    <div class="footer-cta">
+      <h2>Ready to Go Solar?</h2>
+      <p>Join 2,000+ happy homeowners saving thousands on electricity while supporting clean energy.</p>
+      <a href="#calculator" class="btn btn-primary" style="background: white; color: var(--primary);">Schedule Your Free Assessment →</a>
+    </div>
+
+    <div class="footer-links">
+      <a href="#benefits">Benefits</a>
+      <a href="#subsidy">Subsidy</a>
+      <a href="#howitworks">How It Works</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Contact Us</a>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2024 Share-Win Solar. All rights reserved. | Government subsidy partner for PM Surya Ghar: Muft Bijli Yojana</p>
+    </div>
+  </div>
+</section>
+
+<!-- Scripts -->
+<script>
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxwC8vR04f5uKXrnSSXsHiPmAgOWDHoJzzE33AjR81KNNq9ik9GR8pk4N7KrV9-5cxfYw/exec';
+
+  // Form handling
+  const form = document.getElementById('solarForm');
+  const formMessage = document.getElementById('formMessage');
+  const submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+
+    if (!name || !email || !phone) {
+      showError('Please fill in all fields');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+
+    try {
+      const url = SCRIPT_URL + '?' + new URLSearchParams({name, email, phone});
+      
+      await fetch(url, {
+        method: 'GET',
+        mode: 'no-cors'
+      });
+
+      showSuccess('✓ Your details have been saved! We will contact you shortly.');
+      form.reset();
+      
+    } catch (err) {
+      showError('Error submitting form. Please try again.');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Get Your Free Estimate';
+    }
+  });
+
+  function showSuccess(msg) {
+    formMessage.textContent = msg;
+    formMessage.className = 'form-message success';
+    setTimeout(() => {
+      formMessage.className = 'form-message';
+    }, 5000);
+  }
+
+  function showError(msg) {
+    formMessage.textContent = msg;
+    formMessage.className = 'form-message error';
+  }
+
+  // Accordion functionality
+  document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.parentElement;
+      item.classList.toggle('active');
+    });
+  });
+
+  // Smooth scroll for navigation
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({behavior: 'smooth'});
+      }
+    });
+  });
+
+  // Capacity pill selection (if needed)
+  document.querySelectorAll('.capacity-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.capacity-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
